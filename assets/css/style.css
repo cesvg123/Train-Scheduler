@@ -4,18 +4,16 @@ body {
     line-height: 34px;
     color: black;
     background-size: auto;
-    padding: 25pt;
+    padding: 50pt;
     margin-left: 10px;
+    background-color: lightgray
 
 }
 
 h1 {
     font-weight: bold;
-}
-
-h5 {
-    color: gray;
-    font-size: 14px;
+    font-size: 30px;
+    text-align: center
 }
 
 .form-group {
