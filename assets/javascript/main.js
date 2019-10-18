@@ -47,19 +47,20 @@ $(document).ready(() => {
         var TrainFrequency = childSnapshot.val().Frequency;
         var FirstTrainTime = childSnapshot.val().Time;
 
-        var TimeTillArrival = moment();
-        var NextTrain = childSnapshot.val().calcNextTrain;
-        var NextTrain = TimeTillArrival.subtract(FirstTrainTime, "minutes").format("HH:mm");
-        NextTrain = FirstTrainTime + moment().hours(24);
+        // var TimeTillArrival = moment();
+        // // var NextTrain = childSnapshot.val().(calcNextTrain);
+        // var NextTrain = TimeTillArrival.diff(FirstTrainTime, "minutes").format("HH:mm");
+        // // NextTrain = FirstTrainTime + moment().hours(24);
 
-        function calcNextTrain() {
+        // function calcNextTrain() {
             var NextTrain = moment(FirstTrainTime, "HH:mm").subtract(1, "years");
+            var firstTimeConverted = moment(FirstTrainTime, "HH:mm").subtract(1, "years");
             var Time = moment();
             var TimeDifference = moment().diff(moment(firstTimeConverted), "minutes");
             var TimeReminder = TimeDifference % TrainFrequency;
             var TimeTillArrival = TrainFrequency - TimeReminder;
-            var nextTrain = moment().add(TimeTillTrain, "minutes");
-        }
+            var nextTrain = moment().add(TimeTillArrival, "minutes");
+        // }
 
 
         $("#tblBody").append(
@@ -67,6 +68,6 @@ $(document).ready(() => {
                             <td>${TrainDestination}</td>
                             <td>${TrainFrequency}</td>
                             <td>${NextTrain}</td>
-                            <td>${TimeTillArrival}</td></tr>`);
+                            <td>${nextTrain}</td></tr>`);
     });
 });
